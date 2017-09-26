@@ -1,0 +1,111 @@
+@import 'general-elements';
+
+.clear {
+  clear: both;
+}
+.butn-report {
+    display: -moz-flex;
+    display: flex;
+    position: fixed;
+    right: 40px;
+    bottom: 40px;
+    border-radius: 50%;
+    align-items: center;
+    text-align: center;
+    width: 60px;
+    justify-content: center;
+    height: 58px;
+    border: 2px solid transparent;
+    background: #2dc4c6;
+    transition-duration: 0.3s;
+    transition-property: all, transform;
+    box-shadow: inset 0 3px 5px rgba(0,0,0,0.15);
+    outline: none;
+    z-index: 99999;
+    &:hover svg path {
+      fill: #fff;
+    }
+    &:not(.active-button):hover {
+      border: 1px solid #fff;
+      opacity: 0.9;
+      transform: scale(1.1);
+      box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.5);
+    }
+    &.active-button {
+      width: 30px;
+      height: 30px;
+      right: 35px;
+      bottom: 297px;
+      background: lightgray;
+      .icon-close {
+        width: 31px;
+        display: block;
+      }
+      .icon-report {
+        display: none;
+      }
+    }
+    .icon-report {
+      width: 31px;
+      margin: -5px 0 0 0;
+    }
+    .icon-close {
+      display: none;
+    }
+    svg path {
+      transition-duration: 0.3s;
+      transition-property: fill;
+      fill: #0b0b0b;
+    }
+}
+
+
+/* tooltip */
+
+[data-tooltip] {
+    cursor: pointer;
+}
+
+[data-tooltip]:before,
+[data-tooltip]:after
+ {
+    position: absolute;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+            opacity 0.5s ease-in-out,
+            visibility 0.5s ease-in-out,
+            transform 0.2s cubic-bezier(0.71, 1.7, 0.77, 1.24);
+}
+[data-tooltip]:before {
+    z-index: 1001;
+    border: 6px solid transparent;
+    background: transparent;
+    content: "";
+    top: -13%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    margin-bottom: -12px;
+    border-top-color: #000;
+    border-top-color: hsla(0, 0%, 20%, 0.9);
+}
+[data-tooltip]:after {
+    z-index: 1000;
+    padding: 8px;
+    background-color: #000;
+    background-color: hsla(0, 0%, 20%, 0.9);
+    color: #fff;
+    white-space: nowrap;
+    content: attr(data-tooltip);
+    font-size: 12px;
+    line-height: 1.2;
+    top: -12%;
+    left: 50%;
+    transform: translate(-50%, -100%);
+}
+[data-tooltip]:not(.active-button):hover:before,
+[data-tooltip]:not(.active-button):hover:after{
+    visibility: visible;
+    opacity: 1;
+}
+

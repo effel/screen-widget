@@ -1,0 +1,27 @@
+/*for general elements css*/
+
+.butn-common {
+    position: relative;
+    padding: 8px 26px;
+    border: none;
+    font-weight: bold;
+    font-size: 14px;
+    color: white;
+    background: #2dc4c6;
+    cursor: pointer;
+    &:before {
+       position: absolute;
+       bottom:0;
+       content: "";
+       height: 2px;
+       left: auto;
+       right: 50%;
+       left: 50%;
+       background: #fff;
+       transition: all 0.5s ease;
+    }
+    &:hover:before {
+        left: 0;
+        right: 0;
+    }
+}
