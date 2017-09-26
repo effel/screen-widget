@@ -1,11 +1,3 @@
-# Composer
-
-```
-composer config -g secure-http false
-composer config --global repositories.dyninno composer http://packagist.pkirpitsov.php7.dyninno.net
-composer create-project cms-core/project
-```
-
 # Front-end settings
 
 ```
